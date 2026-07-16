@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'mynotes/**'
+    
       #path of the frontend folder
 
 jobs:
@@ -39,7 +38,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: deploy to s3
-      run: aws s3 sync build/ s3://{{secrets.AWS_BUCKET_NAME}} --delete
+      run: aws s3 sync build/ s3://${{secrets.AWS_BUCKET_NAME}} --delete
 
       #with --delete github removes old files
 
