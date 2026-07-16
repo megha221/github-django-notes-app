@@ -5,13 +5,14 @@ import AddButton from '../components/AddButton.js'
 
 const NotesListPage = () => {
     let [notes, setNote] = useState([])
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
 
     useEffect(() => {
         getNotes()
     }, []) // fires once when the component is mounted
 
     let getNotes = async () => {
-        let response = await fetch('/api/notes/')
+        let response = await fetch(`${API_URL}/api/notes/`)
         let data = await response.json()
         console.log(data)
         setNote(data)
