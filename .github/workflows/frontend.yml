@@ -28,7 +28,7 @@ jobs:
       run: npm install
 
     - name: Create .env
-    run: |
+      run: |
       echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" > .env
 
     - name: build
