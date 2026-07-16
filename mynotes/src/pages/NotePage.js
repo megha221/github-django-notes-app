@@ -18,7 +18,7 @@ const NotePage = () => {
       setNote(data)
     }
     getNote()
-  }, [id])
+  }, [id,API_URL])
 
   let createNote = async () => {
     await fetch(`${API_URL}/api/notes/create/`, {
